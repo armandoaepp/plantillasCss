@@ -1,0 +1,59 @@
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>Angular: Empty Fiddle - jsFiddle demo</title>
+      <script type="text/javascript" src="/js/lib/dummy.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+      <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+      <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.js"></script>
+      <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}
+      </style>
+      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.4.0/ui-bootstrap-tpls.min.js"></script>
+      <style type="text/css">
+      </style>
+   </head>
+   <body ng-app="myApp" class="ng-scope">
+      <br><br>
+      <div class="navbar navbar-inverse ng-scope" ng-controller="NavBarCtrl">
+         <div class="navbar-inner">
+            <div class="container">
+               <button class="btn btn-navbar" ng-click="isCollapsed = !isCollapsed"> <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button> <a class="brand" href="#">Short Course</a>
+               <div class="nav-collapse collapse" collapse="isCollapsed" style="height: auto;">
+                  <ul class="nav">
+                     <li><a href="#"><i class="icon-home icon-white"></i> Home</a>
+                     </li>
+                     <li><a href="#">Lessons</a>
+                     </li>
+                     <li><a href="#">Grades</a>
+                     </li>
+                  </ul>
+                  <ul class="nav pull-right">
+                     <li><a href="#/class"><i class="icon-upload icon-white"></i> Upload/Save</a>
+                     </li>
+                     <li><a href="#/class"><i class="icon-off icon-white"></i> Save/Logout</a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- /.nav-collapse -->
+            </div>
+         </div>
+         <!-- /navbar-inner -->
+      </div>
+      <script type="text/javascript">//<![CDATA[
+         var myApp = angular.module('myApp', ['ui.bootstrap']);
+
+         //myApp.directive('myDirective', function() {});
+         //myApp.factory('myService', function() {});
+
+         function NavBarCtrl($scope) {
+             $scope.isCollapsed = true;
+         }
+         //]]>
+
+      </script>
+   </body>
+</html>
