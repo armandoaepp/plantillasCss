@@ -19,13 +19,6 @@
       <script src="./lib/angular/ui-bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
       <!-- js  -->
       <script src="./js/appAdmin.js"></script>
-
-      <script src="./js/appAdmin.js"></script>
-
-      <!-- directives -->
-      <script src="./js/directives/subMenuDirective.js"></script>
-
-
    </head>
    <body>
       <nav class="navbar navbar-inverse navbar-fixed-top fondo-color" role="navigation">
@@ -85,15 +78,11 @@
                <span class="glyphicon glyphicon-info-sign"></span> Alerts &amp; Panels
                </a>
             </li>
-            <li class="parent" >
-               <a href="#" sub-menu >
-               <span class="glyphicon glyphicon-list"></span> Dropdown
-                  <span  class="icon pull-right">
-                   <em class="glyphicon glyphicon-s glyphicon-plus"></em>
-                  </span>
+            <li class="parent ">
+               <a href="#">
+               <span class="glyphicon glyphicon-list"></span> Dropdown <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
                </a>
-               <ul class="children collapse" >
-               <!-- <ul class="children collapse" id="sub-item-1"> -->
+               <ul class="children collapse" id="sub-item-1">
                   <li>
                      <a class="" href="#">
                      <span class="glyphicon glyphicon-share-alt"></span> Sub Item 1

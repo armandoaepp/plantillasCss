@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app="plunker">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+ <div class="mycontainer" ng-controller="MainController">
+        <div class="left-nav">
+            <accordion close-others="true" >
+                  <accordion-group  is-open="isopen"
+                      ng-repeat="item in items"
+                      ng-controller="ItemController">
+                      <accordion-heading >
+                        {{item.desc}} - {{isopen}}
+                          <i class="pull-right glyphicon"
+                                ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
+                      </accordion-heading>
+
+                      <div ng-repeat="subitem in item.subitems">{{subitem.desc}}</div>
+                  </accordion-group>
+              </accordion>
+        </div>
+
+       <!--  <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias corporis doloremque eos, totam modi voluptatum qui quaerat dolor natus, molestias laborum, fuga adipisci fugit sunt cupiditate. Eius consequuntur cum fuga.
+        </div> -->
+    </div>
+    <script>
+      var app = angular.module('plunker', ['ui.bootstrap']);
+
+app.controller('MainController',
+function ($scope) {
+$scope.items = [
+                    {
+                        // name: "item1",
+                        desc: "Item 1",
+                        /*subitems: [
+                            {
+                                name: "subitem1",
+                                desc: "Sub-Item 1"
+                            },
+                            {
+                                name: "subitem2",
+                                desc: "Sub-Item 2"
+                            },
+                            {
+                                name: "subitem2",
+                                desc: "Sub-Item 2"
+                            }]
+                            */
+                    },
+                    {
+                        name: "item2",
+                        desc: "Item 2",
+                        subitems: [
+                            {
+                                name: "subitem1",
+                                desc: "Sub-Item 1"
+                            },
+                            {
+                                name: "subitem2",
+                                desc: "Sub-Item 2"
+                            },
+                            {
+                                name: "subitem2",
+                                desc: "Sub-Item 2"
+                            }]
+                    },
+                    {
+                        name: "item3",
+                        desc: "Item 3",
+                        subitems: [
+                            {
+                                name: "subitem1",
+                                desc: "Sub-Item 1"
+                            },
+                            {
+                                name: "subitem2",
+                                desc: "Sub-Item 2"
+                            },
+                            {
+                                name: "subitem2",
+                                desc: "Sub-Item 2"
+                            }]
+                    }
+                ];
+
+$scope.default = $scope.items[2];
+});
+
+app.controller('ItemController', ['$scope', function (scope) {
+
+                scope.$parent.isopen = (scope.$parent.default === scope.item);
+
+                scope.$watch('isopen', function (newvalue, oldvalue, scope) {
+                    scope.$parent.isopen = newvalue;
+                });
+
+            }]);
+    </script>
+  </body>
+</html>

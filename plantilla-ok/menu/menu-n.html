@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="MyCtrl">
+    <ul>
+        <li ng-repeat="item in items" ng-click="showChilds(item)">
+            <span>{{item.name}}</span>
+            <ul>
+                <li ng-repeat="subItem in item.subItems" ng-show="item.active">
+                    <span>---{{subItem.name}}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var myApp = angular.module('myApp',[]);
+
+    function MyCtrl($scope) {
+        $scope.showChilds = function(item){
+            item.active = !item.active;
+        };
+
+        $scope.items = [
+            {
+                name: "Item1",
+                subItems: [
+                    {name: "SubItem1"},
+                    {name: "SubItem2"}
+                ]
+            },
+            {
+                name: "Item2",
+                subItems: [
+                    {name: "SubItem3"},
+                    {name: "SubItem4"},
+                    {name: "SubItem5"}
+                ]
+            },
+            {
+                name: "Item3",
+                subItems: [
+                    {name: "SubItem6"}
+                ]
+            }
+        ];
+    };
+</script>
+
+</body>
+</html>

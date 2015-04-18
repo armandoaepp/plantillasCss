@@ -1,6 +1,7 @@
 angular.module('appAdmin', [
 	'ui.router',
     'ui.bootstrap',
+    'subMenu.directive',
 ])
 .run(
   [          '$rootScope', '$state', '$stateParams',
