@@ -9,7 +9,9 @@ p {
 }
 
 ul.menu a, a:hover, a:focus {
-	color: #33730F;
+	color: #274062;
+	/*color: #33730F;*/
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -87,7 +89,7 @@ h3, h4 {
 }
 
 .navbar-header .navbar-brand span {
-	color: #33730F;
+	color: #fff;
 }
 
 /*Buttons*/
@@ -562,7 +564,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	/*background-color: #30a5ff;*/
-	background-color: #71A827;
+	background-color: #8FA7CA ; /*#71A827;*/
 }
 
 .sidebar ul.nav ul,
@@ -858,7 +860,9 @@ h1.page-header {
 }
 
 .fondo-color{
-	background-color: #D8DBE2!important ;
+	/*background-color: #D8DBE2!important ;*/
+	background-color: #849BBC!important ;
+
 
 }
 .color-header{

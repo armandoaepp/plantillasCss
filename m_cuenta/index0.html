@@ -12,27 +12,26 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
       <![endif]-->
-
       <!-- <script src="./lib/angular/angular.min.js"></script>  -->
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+      <!--
+         <script src="./lib/angular/angular-animate.min.js"></script>
+         -->
       <script src="./lib/angular/ui-router/angular-ui-router.js"></script>
       <script src="./lib/angular/ui-bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
-      <!-- js  -->
       <script src="./js/appAdmin.js"></script>
    </head>
    <body>
       <nav class="navbar navbar-inverse navbar-fixed-top fondo-color" role="navigation">
          <div class="container-fluid">
             <div class="navbar-header">
-               <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"> -->
-            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
                <a class="navbar-brand color-header" href="#"><span>Transcarga.pe</span></a>
-
                <ul class="user-menu">
                   <li class="dropdown pull-right">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>
@@ -47,7 +46,7 @@
          </div>
          <!-- /.container-fluid -->
       </nav>
-      <div id="sidebar-collapse"  ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true" class="col-sm-3 col-lg-2  collapse sidebar ">
+      <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
          <ul class="nav menu">
             <li class="active">
                <a ui-sref="home" href="#/home">
