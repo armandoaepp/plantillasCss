@@ -1,4 +1,4 @@
-<?php 
+<?php
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
     header('content-type: application/json; charset=utf-8');
     require_once '../../autoload.php';
@@ -18,7 +18,7 @@ switch($evento)
     case "list":
         try
         {
-            $usuarioCtrl = new UsuarioController() ; 
+            $usuarioCtrl = new UsuarioController() ;
             $data = $usuarioCtrl->ctrl_get_usuario() ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
@@ -26,21 +26,23 @@ switch($evento)
         {
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
+    # sin implementar
+
     case "set":
-        
+
         try
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-        
-            $usuarioCtrl = new UsuarioController($cnx) ; 
+
+            $usuarioCtrl = new UsuarioController($cnx) ;
             $objConexion->beginTransaction();
-        
+
             $idusuario = $inputs->IdUsuario;
             $nombres = $inputs->Nombres;
             $nomusuario = $inputs->NomUsuario;
@@ -54,7 +56,7 @@ switch($evento)
             $idcliente = $inputs->IdCliente;
             $estado = $inputs->Estado;
             $superusuario = $inputs->SuperUsuario;
-        
+
             $params = array(
                $idusuario,
                $nombres,
@@ -69,10 +71,10 @@ switch($evento)
                $idcliente,
                $estado,
                $superusuario,
-            ) ; 
-        
+            ) ;
+
             $data = $usuarioCtrl->ctrl_set_usuario($params) ;
-        
+
             $objConexion->commit();
         }
         catch (Exception $e)
@@ -80,7 +82,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -89,7 +91,7 @@ switch($evento)
         try
         {
             $id = $_GET["id"] ;
-            $usuarioCtrl = new UsuarioController() ; 
+            $usuarioCtrl = new UsuarioController() ;
             $data = $usuarioCtrl->ctrl_get_usuario_idusuario( $id) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
@@ -97,7 +99,7 @@ switch($evento)
         {
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -107,10 +109,10 @@ switch($evento)
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-        
-            $usuarioCtrl = new UsuarioController($cnx) ; 
+
+            $usuarioCtrl = new UsuarioController($cnx) ;
             $objConexion->beginTransaction();
-        
+
             $idusuario = $inputs->IdUsuario;
             $nombres = $inputs->Nombres;
             $nomusuario = $inputs->NomUsuario;
@@ -124,7 +126,7 @@ switch($evento)
             $idcliente = $inputs->IdCliente;
             $estado = $inputs->Estado;
             $superusuario = $inputs->SuperUsuario;
-        
+
             $params = array(
                $idusuario,
                $nombres,
@@ -139,10 +141,10 @@ switch($evento)
                $idcliente,
                $estado,
                $superusuario,
-            ) ; 
-        
+            ) ;
+
             $data = $usuarioCtrl->ctrl_upd_usuario($params) ;
-        
+
             $objConexion->commit();
         }
         catch (Exception $e)
@@ -150,7 +152,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;

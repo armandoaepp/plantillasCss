@@ -19,6 +19,7 @@
             $bean_transportista->setEstado($estado);
 
             $data = $objTransportista->get_transportita_by_estado( $bean_transportista) ;
+             echo $objTransportista->get_query() ;
             return $data ;
         }
         catch (Exception $e)

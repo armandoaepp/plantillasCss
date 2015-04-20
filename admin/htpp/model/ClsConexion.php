@@ -3,16 +3,16 @@
 {
     protected $db_driver = 'mysql';
 
-   /* private static $db_host = 'localhost';
+    private static $db_host = 'localhost';
     private static $db_user = 'root';
     private static $db_pass = '123456';
     protected $db_name   = 'db_transcarga';
-*/
 
-    private static $db_host = 'localhost';
+
+/*    private static $db_host = 'localhost';
     private static $db_user = 'transcar_dbusrRK';
     private static $db_pass = 'rokamaos*-';
-    protected $db_name   = 'transcar_sistema';
+    protected $db_name   = 'transcar_sistema';*/
 
 
     protected $query;

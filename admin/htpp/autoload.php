@@ -1,22 +1,24 @@
 <?php
 	function loadModelFiles($file_name){
-		$fullpath = './m_cuenta/htpp/model/' . $file_name . '.php' ;
+		$fullpath = '../../model/' . $file_name . '.php' ;
 		if( file_exists($fullpath) ) {
+			echo $fullpath."<br> " ;
 			require $fullpath;
 		}
-		// echo $fullpath ;
 	}
 
 	function loadBeanFiles($file_name){
-		$fullpath = './m_cuenta/htpp/bean/' . $file_name . '.php' ;
+		$fullpath = '../../bean/' . $file_name . '.php' ;
 		if( file_exists($fullpath) ) {
+			echo $fullpath."<br> " ;
 			require $fullpath;
 		}
 	}
 
 	function loadControllerFiles($file_name){
-		$fullpath = './m_cuenta/htpp/controller/' . $file_name . '.php' ;
+		$fullpath = '../../controller/' . $file_name . '.php' ;
 		if( file_exists($fullpath) ) {
+			echo $fullpath."<br> " ;
 			require $fullpath;
 		}
 	}

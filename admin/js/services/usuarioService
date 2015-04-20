@@ -1,0 +1,10 @@
+'use strinct';
+
+app.service('usuarioService',[ '$http', '$location', function($http, $location){
+	this.getUsuariosByEstado = function(data){
+        var url_ = 'http/public/usuario/IndexUsuario.php',
+            params_ = data;
+        return $http.post(url_, params_);
+	};
+
+}]);

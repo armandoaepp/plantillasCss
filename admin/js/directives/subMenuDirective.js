@@ -12,12 +12,9 @@ myApp.directive('subMenu', function(){
 				var padre = element.parent();
 				var hermanos = padre.children();
 
-				console.log(padre) ;
-				console.log(hermanos) ;
-
-				 var sub_menu = hermanos[1] ;
-
-				 angular.element(sub_menu).removeClass('collapse');
+				//  para generar los menus desplegables
+				var sub_menu = hermanos[1] ;
+				var target = angular.element(sub_menu).toggleClass('collapse');
 
 			});
 		}

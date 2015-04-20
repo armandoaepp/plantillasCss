@@ -1,4 +1,4 @@
-<?php 
+<?php
 # Autor: Armando Enrique Pisfil Puemape tw: @armandoaepp
     header('content-type: application/json; charset=utf-8');
     require_once '../../autoload.php';
@@ -15,32 +15,35 @@ elseif (isset($_POST))
 
 switch($evento)
 {
-    case "list":
+    case "listTransEstado":
         try
         {
-            $transportistaCtrl = new TransportistaController() ; 
-            $data = $transportistaCtrl->ctrl_get_transportista() ;
+            $estado   = 1;
+            // $estado   = $inputs->Estado;
+
+            $transportistaCtrl = new TransportistaController() ;
+            $data = $transportistaCtrl->ctrl_get_transportita_by_estado($estado) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
         catch (Exception $e)
         {
-            $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
+            $data = array('msg' => 'No encontraron registros : ' .$e, 'error' => false,  'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
 
     case "set":
-        
+
         try
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-        
-            $transportistaCtrl = new TransportistaController($cnx) ; 
+
+            $transportistaCtrl = new TransportistaController($cnx) ;
             $objConexion->beginTransaction();
-        
+
             $idttransp = $inputs->IdTtransp;
             $razonsocial = $inputs->RazonSocial;
             $direccion = $inputs->Direccion;
@@ -60,7 +63,7 @@ switch($evento)
             $estado = $inputs->Estado;
             $certificada = $inputs->Certificada;
             $ubigeo = $inputs->Ubigeo;
-        
+
             $params = array(
                $idttransp,
                $razonsocial,
@@ -81,10 +84,10 @@ switch($evento)
                $estado,
                $certificada,
                $ubigeo,
-            ) ; 
-        
+            ) ;
+
             $data = $transportistaCtrl->ctrl_set_transportista($params) ;
-        
+
             $objConexion->commit();
         }
         catch (Exception $e)
@@ -92,7 +95,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -101,7 +104,7 @@ switch($evento)
         try
         {
             $id = $_GET["id"] ;
-            $transportistaCtrl = new TransportistaController() ; 
+            $transportistaCtrl = new TransportistaController() ;
             $data = $transportistaCtrl->ctrl_get_transportista_idtransportista( $id) ;
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => $data);
         }
@@ -109,7 +112,7 @@ switch($evento)
         {
             $data = array('msg' => 'Se encontraron registros', 'error' => false, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
@@ -119,10 +122,10 @@ switch($evento)
         {
             $objConexion = new ClsConexion();
             $cnx = $objConexion->get_connection();
-        
-            $transportistaCtrl = new TransportistaController($cnx) ; 
+
+            $transportistaCtrl = new TransportistaController($cnx) ;
             $objConexion->beginTransaction();
-        
+
             $idttransp = $inputs->IdTtransp;
             $razonsocial = $inputs->RazonSocial;
             $direccion = $inputs->Direccion;
@@ -142,7 +145,7 @@ switch($evento)
             $estado = $inputs->Estado;
             $certificada = $inputs->Certificada;
             $ubigeo = $inputs->Ubigeo;
-        
+
             $params = array(
                $idttransp,
                $razonsocial,
@@ -163,10 +166,10 @@ switch($evento)
                $estado,
                $certificada,
                $ubigeo,
-            ) ; 
-        
+            ) ;
+
             $data = $transportistaCtrl->ctrl_upd_transportista($params) ;
-        
+
             $objConexion->commit();
         }
         catch (Exception $e)
@@ -174,7 +177,7 @@ switch($evento)
             $objConexion->rollback();
             $data = array('msg' => $e->getMessage(), 'error' => true, 'data' => array());
         }
-        
+
         $jsn  = json_encode($data);
         print_r($jsn) ;
     break;
