@@ -24,7 +24,8 @@
       <!-- directives -->
       <script src="./js/directives/subMenuDirective.js"></script>
 
-      <base href="http://localhost/plantillas/admin/" />
+      <base href="/plantillasCss/admin/" />
+      <meta name="fragment" content="!">
 
    </head>
    <body>
@@ -56,22 +57,22 @@
       <div id="sidebar-collapse"  ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true" class="col-sm-3 col-lg-2  collapse sidebar ">
          <ul class="nav menu">
             <li class="active">
-               <a ui-sref="home" href="#/home">
+               <a ui-sref="home" ui-sref="home">
                <span class="glyphicon glyphicon-dashboard"></span> Dashboard
                </a>
             </li>
             <li>
-               <a ui-sref="cliente" href="#/cliente">
+               <a ui-sref="cliente" ui-sref="cliente">
                <span class="glyphicon glyphicon-th"></span> Cleintes
                </a>
             </li>
             <li>
-               <a ui-sref="reporte" href="#/reporte">
+               <a ui-sref="reporte" ui-sref="reporte">
                <span class="glyphicon glyphicon-stats"></span> Reportes
                </a>
             </li>
             <li>
-               <a ui-sref="cuentas" href="#/cuentas" >
+               <a ui-sref="cuentas" ui-sref="cuentas" >
                <span class="glyphicon glyphicon-list-alt"></span> Cuentas de Usuario
                </a>
             </li>
