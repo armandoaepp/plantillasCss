@@ -3,7 +3,9 @@ body {
 	padding-top: 50px;
 	color: #5f6468;
 }
-
+*{
+	padding:0px;
+	margin:0px;
 p {
 	color: #777;
 }
